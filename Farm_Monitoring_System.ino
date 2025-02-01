@@ -21,9 +21,9 @@ String getSoilMoisture() {
     int value = analogRead(SOIL_SENSOR_PIN);
     int percentage = map(value, 1023, 0, 0, 100); // 0 = Wet, 100 = Dry
 
-    if (percentage > 60) return "Dry - Water Needed";
+    if (percentage > 60) return "Moist - No Water Needed";
     else if (percentage > 30) return "Moderate - Consider Watering";
-    else return "Moist - No Water Needed";
+    else return "Dry - Water Needed";
 }
 
 // Function to Read Temperature & Humidity
@@ -40,10 +40,8 @@ void handleRoot() {
     String page = "<!DOCTYPE html>"
               "<html><head><title>Farm Monitor</title>"
               "<style>"
-              // "@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');"
               "body {"
-              // "    font-family: 'Poppins', sans-serif;"
-              "    background: linear-gradient(135deg, #42a5f5, #478ed1);"
+              // "    background: linear-gradient(135deg, #42a5f5, #478ed1);"
               "    margin: 0; padding: 0;"
               "    display: flex; justify-content: center; align-items: flex-start;"
               "    min-height: 100vh;"
@@ -60,8 +58,9 @@ void handleRoot() {
               "span { font-weight: bold; color: #e74c3c; }"
               "@media (max-width: 768px) {"
               "    .container { width: 80%; margin-top: 20%; padding: 40px; }"
-              "    h1 { font-size: 45px; }"
-              "    h3 { font-size: 35px; margin: 20px 0; }"
+              "    h1 { font-size: 25px; }"
+              "    h3 { font-size: 15px; margin: 20px 0; }"
+              "    box-shadow: 0;"
               "}"
               "</style>"
               "</head><body>"
@@ -104,24 +103,24 @@ void handleRoot() {
     server.send(200, "text/html", page);
 }
 
-void checkClientConnections() {
-    int numClients = WiFi.softAPgetStationNum(); // Get connected clients count
-    Serial.print("Connected Clients: ");
-    Serial.println(numClients);
+// void checkClientConnections() {
+//     int numClients = WiFi.softAPgetStationNum(); // Get connected clients count
+//     Serial.print("Connected Clients: ");
+//     Serial.println(numClients);
 
-    if (numClients > 0) {
-        Serial.println("✅ Device Connected - Turning LED ON");
-        digitalWrite(LED_PIN, HIGH); // Turn LED ON
-    } else {
-        Serial.println("❌ No Device Connected - Turning LED OFF");
-        digitalWrite(LED_PIN, LOW); // Turn LED OFF
-    }
-}
+//     if (numClients > 0) {
+//         Serial.println("✅ Device Connected - Turning LED ON");
+//         digitalWrite(LED_PIN, HIGH); // Turn LED ON
+//     } else {
+//         Serial.println("❌ No Device Connected - Turning LED OFF");
+//         digitalWrite(LED_PIN, LOW); // Turn LED OFF
+//     }
+// }
 
 
 void setup() {
     Serial.begin(115200);
-        delay(2000); // Allow sensor to stabilize
+    delay(2000); // Allow sensor to stabilize
     dht.begin();
     pinMode(SOIL_SENSOR_PIN, INPUT);
     pinMode(LED_PIN, OUTPUT);
@@ -159,4 +158,3 @@ void loop() {
 
     delay(2000); // Wait 2 seconds before reading again
 }
-
