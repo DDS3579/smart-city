@@ -72,28 +72,105 @@ void handleRoot() {
               "    <h3> Humidity: <span id='humidity'>" + String(humidity) + "%</span></h3>"
               "    <h3> Location: <span id='location'>Not Provided</span></h3>"
               "    <h3> Recommended Crops: <span id='crops'>N/A</span></h3>"
+              "    <h3> For Kitchen Garden: <span id='garden'>N/A</span></h3>"
               "</div>"
 
               "<script>"
-              "let userLocation = prompt('Enter your location (City or Country):');"
+              "let userLocation = prompt('Enter your location (Name of the Town or City):');"
               "if(userLocation) {"
               "   document.getElementById('location').innerText = userLocation;"
               "   recommendCrops(userLocation);"
+              "   recommendGarden(userLocation);"
               "} else {"
               "   document.getElementById('location').innerText = 'Location Not Provided';"
               "}"
+
+              "function recommendGarden(location){"
+              "   let garden = '';" 
+              "if (location.toLowerCase().includes('kathmandu') || location.toLowerCase().includes('lalitpur') || location.toLowerCase().includes('bhaktapur')) {"
+              "    garden = 'Tomato, Spinach, Carrot, Apple, Cabbage';"
+              "} else if (location.toLowerCase().includes('pokhara')) {"
+              "    garden = 'Cucumber, Radish, Cauliflower, Orange, Beans';"
+              "} else if (location.toLowerCase().includes('biratnagar')) {"
+              "    garden = 'Pumpkin, Bitter Gourd, Guava, Onion, Lettuce';"
+              "} else if (location.toLowerCase().includes('birgunj')) {"
+              "    garden = 'Brinjal, Garlic, Lemon, Coriander, Peas';"
+              "} else if (location.toLowerCase().includes('bharatpur') || location.toLowerCase().includes('chitwan')) {"
+              "    garden = 'Chili, Papaya, Carrot, Cauliflower, Beans';"
+              "} else if (location.toLowerCase().includes('hetauda')) {"
+              "    garden = 'Cabbage, Mango, Tomato, Coriander, Garlic';"
+              "} else if (location.toLowerCase().includes('janakpur')) {"
+              "    garden = 'Potato, Cucumber, Banana, Spinach, Onion';"
+              "} else if (location.toLowerCase().includes('itahari')) {"
+              "    garden = 'Lemon, Peas, Bitter Gourd, Tomato, Radish';"
+              "} else if (location.toLowerCase().includes('dharan')) {"
+              "    garden = 'Chili, Guava, Onion, Coriander, Pumpkin';"
+              "} else if (location.toLowerCase().includes('dhangadhi')) {"
+              "    garden = 'Tomato, Beans, Carrot, Papaya, Lettuce';"
+              "} else if (location.toLowerCase().includes('nepalgunj')) {"
+              "    garden = 'Spinach, Mango, Cucumber, Garlic, Radish';"
+              "} else if (location.toLowerCase().includes('tulsipur')) {"
+              "    garden = 'Brinjal, Peas, Lemon, Chili, Onion';"
+              "} else if (location.toLowerCase().includes('ghorahi')) {"
+              "    garden = 'Cabbage, Mango, Tomato, Coriander, Garlic';"
+              "} else if (location.toLowerCase().includes('butwal')) {"
+              "    garden = 'Carrot, Banana, Cucumber, Spinach, Onion';"
+              "} else if (location.toLowerCase().includes('siddharthanagar')) {"
+              "    garden = 'Tomato, Guava, Peas, Bitter Gourd, Radish';"
+              "} else if (location.toLowerCase().includes('bhadrapur')) {"
+              "    garden = 'Lemon, Papaya, Cauliflower, Coriander, Beans';"
+              "} else if (location.toLowerCase().includes('damak')) {"
+              "    garden = 'Chili, Banana, Tomato, Cabbage, Peas';"
+              "} else if (location.toLowerCase().includes('rajbiraj')) {"
+              "    garden = 'Cucumber, Guava, Garlic, Lettuce, Radish';"
+              "} else {"
+              "    garden = 'General Garden: Tomato, Spinach, Carrot, Mango, Coriander';"
+              "}"
+              "   document.getElementById('garden').innerText = garden;"
+              "}"
+
               
               "function recommendCrops(location) {"
               "   let crops = '';"
-              "   if(location.toLowerCase().includes('india')) {"
-              "       crops = 'Rice, Wheat, Sugarcane';"
-              "   } else if(location.toLowerCase().includes('usa')) {"
-              "       crops = 'Corn, Soybean, Cotton';"
-              "   } else if(location.toLowerCase().includes('uk')) {"
-              "       crops = 'Barley, Oats, Potatoes';"
-              "   } else {"
-              "       crops = 'General Crops: Maize, Beans, Vegetables';"
-              "   }"
+              "if (location.toLowerCase().includes('kathmandu') || location.toLowerCase().includes('lalitpur') || location.toLowerCase().includes('bhaktapur')) {"
+              "    crops = 'Rice, Maize, Wheat, Barley, Millet, Potato, Vegetables, Lentils, Mustard, Fruits';"
+              "} else if (location.toLowerCase().includes('pokhara')) {"
+              "    crops = 'Rice, Maize, Wheat, Millet, Barley, Potato, Coffee, Vegetables, Ginger, Fruits';"
+              "} else if (location.toLowerCase().includes('biratnagar')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Jute, Mustard, Lentils, Potato, Vegetables, Fruits';"
+              "} else if (location.toLowerCase().includes('birgunj')) {"
+              "    crops = 'Sugarcane, Rice, Maize, Wheat, Pulses, Mustard, Vegetables, Jute, Lentils, Potato';"
+              "} else if (location.toLowerCase().includes('bharatpur') || location.toLowerCase().includes('chitwan')) {"
+              "    crops = 'Rice, Maize, Wheat, Mustard, Vegetables, Potato, Lentils, Barley, Fruits, Sugarcane';"
+              "} else if (location.toLowerCase().includes('hetauda')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Mustard, Vegetables, Potato, Barley, Lentils, Fruits';"
+              "} else if (location.toLowerCase().includes('janakpur')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Lentils, Mustard, Vegetables, Potato, Barley, Jute';"
+              "} else if (location.toLowerCase().includes('itahari')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Jute, Mustard, Potato, Vegetables, Lentils, Barley';"
+              "} else if (location.toLowerCase().includes('dharan')) {"
+              "    crops = 'Rice, Maize, Wheat, Vegetables, Mustard, Potato, Lentils, Barley, Ginger, Fruits';"
+              "} else if (location.toLowerCase().includes('dhangadhi')) {"
+              "    crops = 'Rice, Maize, Wheat, Mustard, Sugarcane, Jute, Potato, Vegetables, Lentils, Barley';"
+              "} else if (location.toLowerCase().includes('nepalgunj')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Lentils, Mustard, Potato, Vegetables, Jute, Barley';"
+              "} else if (location.toLowerCase().includes('tulsipur')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Mustard, Lentils, Potato, Vegetables, Ginger, Fruits';"
+              "} else if (location.toLowerCase().includes('ghorahi')) {"
+              "    crops = 'Rice, Maize, Wheat, Mustard, Lentils, Potato, Vegetables, Fruits, Barley, Ginger';"
+              "} else if (location.toLowerCase().includes('butwal')) {"
+              "    crops = 'Rice, Maize, Wheat, Mustard, Vegetables, Potato, Lentils, Sugarcane, Barley, Fruits';"
+              "} else if (location.toLowerCase().includes('siddharthanagar')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Lentils, Mustard, Vegetables, Potato, Fruits, Jute';"
+              "} else if (location.toLowerCase().includes('bhadrapur')) {"
+              "    crops = 'Tea, Rice, Maize, Wheat, Sugarcane, Mustard, Potato, Vegetables, Lentils, Jute';"
+              "} else if (location.toLowerCase().includes('damak')) {"
+              "    crops = 'Rice, Maize, Wheat, Tea, Sugarcane, Potato, Mustard, Vegetables, Lentils, Fruits';"
+              "} else if (location.toLowerCase().includes('rajbiraj')) {"
+              "    crops = 'Rice, Maize, Wheat, Sugarcane, Jute, Mustard, Lentils, Potato, Vegetables, Barley';"
+              "} else {"
+              "    crops = 'General Crops: Maize, Beans, Vegetables';"
+              "}"
               "   document.getElementById('crops').innerText = crops;"
               "}"
               "</script>"
@@ -102,21 +179,6 @@ void handleRoot() {
 
     server.send(200, "text/html", page);
 }
-
-// void checkClientConnections() {
-//     int numClients = WiFi.softAPgetStationNum(); // Get connected clients count
-//     Serial.print("Connected Clients: ");
-//     Serial.println(numClients);
-
-//     if (numClients > 0) {
-//         Serial.println("✅ Device Connected - Turning LED ON");
-//         digitalWrite(LED_PIN, HIGH); // Turn LED ON
-//     } else {
-//         Serial.println("❌ No Device Connected - Turning LED OFF");
-//         digitalWrite(LED_PIN, LOW); // Turn LED OFF
-//     }
-// }
-
 
 void setup() {
     Serial.begin(115200);
