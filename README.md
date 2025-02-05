@@ -13,4 +13,21 @@
   <li>"DHT Sensor Library" in Library Manager</li>
 </ul>
 <br>
+<h2>Setup Steps:</h2>
+<br>
+<h3>Farm Monitoring System</h3>
+<br>
+<p>Materials Required:</p>
+<ul>
+  <li>ESP32 Microcontroller (For a LAN (Wifi) and Data Processing)</li>
+  <li>DHT11 Temperature and Humidity Sensor</li>
+  <li>FS-90 Soil Moisture Sensor</li>
+  <li>Jumper Wires (All 3 Types)</li>
+  <li>Breadboard or Project Board (optional)</li>
+  <li>DC 5V Power Supply or USB (According to the type of ESP32) connection to laptop</li>
+</ul>
+<br>
+<p><b>Connections:</b></p>
+<br>
+<p></p>
 
