@@ -30,8 +30,8 @@ void loop() {
     delayMicroseconds(10);
 
     duration = pulseIn(echoPin, HIGH);
-//    distance = duration * 0.034 / 2 + distance;
-    distance += duration * 0.034 / 2;
+   distance = duration * 0.034 / 2 + distance;
+    // distance += duration * 0.034 / 2;
     delay(10);
   }
 
