@@ -25,13 +25,28 @@
 <ul>
   <li>ESP32 Microcontroller (For a LAN (Wifi) and Data Processing)</li>
   <li>DHT11 Temperature and Humidity Sensor</li>
+  <li>PH Sensor (if available)</li>
   <li>FS-90 Soil Moisture Sensor</li>
-  <li>Jumper Wires (All 3 Types)</li>
+  <li>Jumper Wires (All 3 Types atleast 15 each)</li>
   <li>Breadboard or Project Board (optional)</li>
   <li>DC 5V Power Supply or USB (According to the type of ESP32) connection to laptop</li>
 </ul>
 <br>
 <p><b>Connections:</b></p>
 <br>
-<p></p>
+<p><strong>Disclaimer:</strong> Make sure to checkout the ESP32 Pinout below before making the connections.</p>
+<br>
+<img src="https://lastminuteengineers.com/wp-content/uploads/iot/ESP32-Pinout.png" alt="ESP32 PINOUT"/>
+<p><b>Note: </b>The image may differ from your ESP32 so check the text above the pin present in the ESP32.</p>
+<br>
+<ul>
+  <li>DHT11 Temperature Sensor Data Pin &rarr; GPIO 14</li>
+  <li>Soil Moisture Sensor Data Pin &rarr; GPIO 32</li>
+  <li>Connect the following in Series:</li>
+  <ul>
+    <li>VCC of DHT 11</li>
+    <li>VCC of Soil Moisture Sensor</li>
+    <li></li>
+  </ul>
+</ul>
 
