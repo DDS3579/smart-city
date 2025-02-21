@@ -13,6 +13,10 @@
   <li>"DHT Sensor Library" in Library Manager</li>
 </ul>
 <br>
+<h2>Structure</h2>
+<br>
+<img src="forest.png"/>
+<br>
 <h2>Setup Steps:</h2>
 <br>
 <h3>Farm Monitoring System</h3>
